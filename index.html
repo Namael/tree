@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Rodokmen Naďových</title>
+  <style>
+    body { margin: 0; background: #fbf8f2; color: #3b2e22; font: 16px/1.5 system-ui, sans-serif; }
+    header { max-width: 1100px; margin: auto; padding: 1.5rem 1rem .5rem; }
+    h1 { margin: 0; font: 2rem Georgia, serif; }
+    p { margin: .5rem 0; }
+    button { background: white; border: 1px solid #b5a997; border-radius: .3rem; padding: .5rem .8rem; cursor: pointer; font: inherit; }
+    .viewport { overflow: auto; height: 75vh; margin: 1rem; border: 1px solid #ded5c8; background: white; }
+    img { display: block; width: 100%; min-width: 600px; height: auto; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Rodokmen Naďových</h1>
+    <p>Uprostřed je výchozí osoba, každý další kruh představuje starší generaci. Některá propojení jsou zatím pouze pravděpodobná.</p>
+    <p>Přibližte si strom tlačítky a posouvejte ho tažením posuvníků.</p>
+    <button type="button" id="plus" aria-label="Přiblížit">＋</button>
+    <button type="button" id="minus" aria-label="Oddálit">−</button>
+    <button type="button" id="reset">Celý strom</button>
+  </header>
+  <main class="viewport"><img src="vejir.svg" alt="Vějíř předků rodiny Naďových"></main>
+  <script>
+    const tree = document.querySelector('img');
+    let zoom = 100;
+    function apply() { tree.style.width = zoom + '%'; }
+    document.querySelector('#plus').onclick = () => { zoom = Math.min(400, zoom * 1.5); apply(); };
+    document.querySelector('#minus').onclick = () => { zoom = Math.max(100, zoom / 1.5); apply(); };
+    document.querySelector('#reset').onclick = () => { zoom = 100; apply(); };
+  </script>
+</body>
+</html>
