@@ -1,5 +1,6 @@
 name = "tree"
 compatibility_date = "2026-10-30"
+preview_urls = false
 
 [assets]
-directory = "."
+directory = "./public"
